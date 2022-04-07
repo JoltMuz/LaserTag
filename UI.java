@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 public class UI implements Listener
 {
+    static String signature = ChatColor.DARK_RED + "L" + ChatColor.RED + "a" + ChatColor.GOLD + "s"+ ChatColor.YELLOW + "e" + ChatColor.DARK_GREEN + "r" + ChatColor.GREEN + "T" + ChatColor.DARK_AQUA + "a" + ChatColor.AQUA + "g" + ChatColor.DARK_GRAY + " 》";
     public static ItemStack LongRangeSelect;
     public static ItemStack ExplosiveSelect;
     public static ItemStack BoostSelect;
@@ -114,19 +115,19 @@ public class UI implements Listener
                 {
                     p.getInventory().addItem(LongRangeGun);
                     p.closeInventory();
-                    Bukkit.broadcastMessage(ChatColor.GOLD + p.getName() + ChatColor.YELLOW + " has chosen " + ChatColor.GOLD + "Long Range"  + ChatColor.YELLOW + " Ability!");
+                    Bukkit.broadcastMessage(signature + ChatColor.GOLD + p.getName() + ChatColor.YELLOW + " has chosen " + ChatColor.GOLD + "Long Range"  + ChatColor.YELLOW + " Ability!");
                 }
                 if (clicked.getItemMeta().getDisplayName().equals(ChatColor.DARK_RED + ChatColor.BOLD.toString() + "Explosive"))
                 {
                     p.getInventory().addItem(ExplosiveGun);
                     p.closeInventory();
-                    Bukkit.broadcastMessage(ChatColor.DARK_RED + p.getName() + ChatColor.RED + " has chosen " + ChatColor.DARK_RED + "Explosive"  + ChatColor.RED + " Ability!");
+                    Bukkit.broadcastMessage(signature + ChatColor.DARK_RED + p.getName() + ChatColor.RED + " has chosen " + ChatColor.DARK_RED + "Explosive"  + ChatColor.RED + " Ability!");
                 }
                 if (clicked.getItemMeta().getDisplayName().equals(ChatColor.DARK_GREEN + ChatColor.BOLD.toString() + "Boost"))
                 {
                     p.getInventory().addItem(BoostGun);
                     p.closeInventory();
-                    Bukkit.broadcastMessage(ChatColor.DARK_GREEN + p.getName() + ChatColor.GREEN + " has chosen " + ChatColor.DARK_GREEN + "Boost"  + ChatColor.GREEN + " Ability!");
+                    Bukkit.broadcastMessage(signature + ChatColor.DARK_GREEN + p.getName() + ChatColor.GREEN + " has chosen " + ChatColor.DARK_GREEN + "Boost"  + ChatColor.GREEN + " Ability!");
                 }
             }
         }
