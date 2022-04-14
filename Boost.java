@@ -45,7 +45,7 @@ public class Boost implements Listener
                             {
                                 if (en instanceof Damageable)
                                 {
-                                    ((Damageable) en).damage(2);
+                                    ((Damageable) en).damage(2,p);
                                     p.getWorld().playSound(p.getLocation(), Sound.SUCCESSFUL_HIT,100,1);
                                 }
                             }
