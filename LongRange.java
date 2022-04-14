@@ -43,7 +43,7 @@ public class LongRange implements Listener
                                 {
                                     if (en instanceof Damageable)
                                     {
-                                        ((Damageable) en).damage(2);
+                                        ((Damageable) en).damage(2,p);
                                         p.getWorld().playSound(p.getLocation(), Sound.SUCCESSFUL_HIT,100,1);
                                     }
                                 }
@@ -71,7 +71,7 @@ public class LongRange implements Listener
                                 {
                                     if (en instanceof Damageable)
                                     {
-                                        ((Damageable) en).damage(4);
+                                        ((Damageable) en).damage(4,p);
                                         p.getWorld().playSound(p.getLocation(), Sound.SUCCESSFUL_HIT,100,1);
                                     }
                                 }
