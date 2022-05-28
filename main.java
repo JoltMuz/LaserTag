@@ -11,6 +11,7 @@ public final class main extends JavaPlugin implements Listener
         getServer().getPluginManager().registerEvents(new LongRange(), this);
         getServer().getPluginManager().registerEvents(new Explosive(), this);
         getServer().getPluginManager().registerEvents(new Boost(), this);
+        this.getCommand("lasergun").setExecutor(new UI());
     }
     @Override
     public void onDisable()
