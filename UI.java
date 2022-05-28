@@ -1,21 +1,27 @@
+
+
+import java.util.ArrayList;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerLevelChangeEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import java.util.ArrayList;
 
-
-public class UI implements Listener
+public class UI implements Listener, CommandExecutor
 {
-    static String signature = ChatColor.DARK_RED + "L" + ChatColor.RED + "a" + ChatColor.GOLD + "s"+ ChatColor.YELLOW + "e" + ChatColor.DARK_GREEN + "r" + ChatColor.GREEN + "T" + ChatColor.DARK_AQUA + "a" + ChatColor.AQUA + "g" + ChatColor.DARK_GRAY + " 》";
+	static String signature = ChatColor.DARK_RED + "L" + ChatColor.RED + "a" + ChatColor.GOLD + "s"+ ChatColor.YELLOW + "e" + ChatColor.DARK_GREEN + "r" + ChatColor.GREEN + "T" + ChatColor.DARK_AQUA + "a" + ChatColor.AQUA + "g" + ChatColor.DARK_GRAY + " 》";
     public static ItemStack LongRangeSelect;
     public static ItemStack ExplosiveSelect;
     public static ItemStack BoostSelect;
@@ -91,13 +97,40 @@ public class UI implements Listener
         BoostGun.setItemMeta(BoostGunMeta);
 
     }
-    @EventHandler
-    public void AbilityUI(PlayerLevelChangeEvent e)
+    @Override
+    public boolean onCommand(CommandSender Sender, Command command, String s, String[] args)
     {
-        if (e.getNewLevel() > 0)
+        if (Sender.isOp())
         {
-            e.getPlayer().openInventory(AbilityUI);
+        	if (args.length > 0)
+        	{
+        		if (Bukkit.getPlayer(args[0]) != null)
+        		{
+        			Bukkit.getPlayer(args[0]).openInventory(AbilityUI);
+        		}
+        		else
+        		{
+        			Sender.sendMessage(signature + ChatColor.DARK_RED + args[0] + ChatColor.RED + " player not found.");
+        		}
+        	}
+        	else
+        	{
+        		if (Sender instanceof Player)
+        		{
+        			((Player) Sender).openInventory(AbilityUI);
+        		}
+        		else
+        		{
+        			Sender.sendMessage(signature + ChatColor.RED + "Usage: /lasergun [player]");
+        		}
+        	}
         }
+        else
+        {
+        	Sender.sendMessage(signature + ChatColor.RED + "You need operator for this command.");
+        }
+        return true;
+        
     }
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event)
