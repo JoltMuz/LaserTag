@@ -1,4 +1,15 @@
-import org.bukkit.*;
+
+import static io.github.JoltMuz.LaserTag.Cooldown.LongRange;
+import static io.github.JoltMuz.LaserTag.Cooldown.Shoot;
+import static io.github.JoltMuz.LaserTag.Cooldown.checkCooldown;
+
+import java.util.ArrayList;
+
+import org.bukkit.ChatColor;
+import org.bukkit.Effect;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -8,13 +19,9 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.ArrayList;
-
-import static io.github.JoltMuz.LazerTag.Cooldown.*;
-
 public class LongRange implements Listener
 {
-    @EventHandler
+	@EventHandler
     public void Shoot(PlayerInteractEvent e)
     {
         Player p = e.getPlayer();
@@ -69,7 +76,7 @@ public class LongRange implements Listener
                             {
                                 if (en.getLocation().distance(Locations.get(i)) < 1.5)
                                 {
-                                    if (en instanceof Damageable)
+                                    if (en instanceof Damageable && en.getName() != p.getName())
                                     {
                                         ((Damageable) en).damage(4,p);
                                         p.getWorld().playSound(p.getLocation(), Sound.SUCCESSFUL_HIT,100,1);
