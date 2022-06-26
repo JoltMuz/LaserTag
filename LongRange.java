@@ -1,3 +1,4 @@
+package io.github.JoltMuz.LaserTag;
 
 import static io.github.JoltMuz.LaserTag.Cooldown.LongRange;
 import static io.github.JoltMuz.LaserTag.Cooldown.Shoot;
@@ -43,7 +44,7 @@ public class LongRange implements Listener
                         for ( int i = 0 ; i < Locations.size(); i ++)
                         {
                             p.getWorld().spigot().playEffect(Locations.get(i), Effect.MAGIC_CRIT,  0,0,0,0,0,0,1,10);
-                            p.getWorld().playSound(p.getLocation(), Sound.BAT_DEATH,100,1);
+                            p.getWorld().playSound(p.getLocation(), Sound.BAT_DEATH,20,1);
                             for (Entity en : Locations.get(i).getChunk().getEntities())
                             {
                                 if (en.getLocation().distance(Locations.get(i)) < 1.5)

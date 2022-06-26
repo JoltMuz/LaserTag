@@ -1,6 +1,12 @@
-package io.github.JoltMuz.LazerTag;
+package io.github.JoltMuz.LaserTag;
 
-import org.bukkit.*;
+import java.util.ArrayList;
+
+import org.bukkit.ChatColor;
+import org.bukkit.Effect;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -10,13 +16,11 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.ArrayList;
-
-import static io.github.JoltMuz.LazerTag.Cooldown.*;
+import static io.github.JoltMuz.LaserTag.Cooldown.*;
 
 public class Boost implements Listener
 {
-    @EventHandler
+	@EventHandler
     public void Shoot(PlayerInteractEvent e)
     {
         Player p = e.getPlayer();
@@ -46,7 +50,7 @@ public class Boost implements Listener
                                 if (en instanceof Damageable)
                                 {
                                     ((Damageable) en).damage(2,p);
-                                    p.getWorld().playSound(p.getLocation(), Sound.SUCCESSFUL_HIT,100,1);
+                                    p.getWorld().playSound(p.getLocation(), Sound.SUCCESSFUL_HIT,20,1);
                                 }
                             }
                         }

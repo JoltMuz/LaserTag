@@ -1,14 +1,16 @@
+package io.github.JoltMuz.LaserTag;
+
 import java.util.HashMap;
 import java.util.Map;
 
-public class Cooldown
+public class Cooldown 
 {
-    public static Map<String, Double> Shoot = new HashMap<>();
+	public static Map<String, Double> Shoot = new HashMap<>();
     public static Map<String, Double> LongRange = new HashMap<>();
     public static Map<String, Double> Explosive = new HashMap<>();
     public static Map<String, Double> Boost = new HashMap<>();
 
-    public static boolean checkCooldown(String playerName, Map ItemName, double cooldown)
+    public static boolean checkCooldown(String playerName, Map<String, Double> ItemName, double cooldown)
     {
         if (ItemName.containsKey(playerName))
         {
@@ -25,4 +27,5 @@ public class Cooldown
         }
         return false;
     }
+
 }
